@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.capstone.android.instatour"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode new Date().format('yyMMddHHmm').toInteger()
+        versionName "0.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion = '29.0.1'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation("com.squareup.okhttp3:okhttp:4.0.1")
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    /* Network Library */
+
+    implementation 'com.google.android.gms:play-services-measurement:17.4.1'
+    implementation 'com.google.android.gms:play-services-measurement-sdk:17.4.1'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    /* Glide Library */
+
+    implementation 'pub.devrel:easypermissions:0.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-alpha01'
+    /* ViewPager Library */
+
+    implementation 'com.github.yalantis:ucrop:2.2.4-native'
+    /* uCrop Library */
+
+    implementation 'androidx.room:room-runtime:2.2.5'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+    /* Room Library */
+
+    implementation 'com.amazonaws:aws-android-sdk-cognito:2.16.2'
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.16.2'
+    implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.12'
+    /* AWS Library */
+
+    //For the drop-in UI also:
+    implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.12'
+    implementation 'com.amazonaws:aws-android-sdk-auth-ui:2.16.12'
+
+//For hosted UI also:
+    implementation 'com.amazonaws:aws-android-sdk-cognitoauth:2.16.12'
+}
